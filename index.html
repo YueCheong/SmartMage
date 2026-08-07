@@ -1,27 +1,187 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>SmartMage: Dynamic Modality Orchestration for 3D Scene Understanding</title>
-<style>
-body{font-family:Arial,Helvetica,sans-serif;max-width:1000px;margin:auto;padding:40px;line-height:1.6;color:#222}h1{text-align:center;font-size:42px}.authors{text-align:center;font-size:20px}.buttons{text-align:center;margin:30px}.btn{display:inline-block;padding:10px 18px;border-radius:8px;background:#333;color:#fff;text-decoration:none;margin:5px}.img{width:100%;margin:30px 0;border-radius:12px}section{margin:50px 0}h2{font-size:30px}</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SmartMage: Dynamic Modality Orchestration for 3D Scene Understanding</title>
+  <meta name="description" content="SmartMage dynamically selects task-relevant 3D modalities with SMART and routes tokens to modality-specialized experts with MAGE.">
+  <meta name="keywords" content="SmartMage, 3D scene understanding, multimodal learning, adaptive modality selection, mixture of experts, ACM Multimedia 2026">
+  <meta name="author" content="Yue Zhang, Yingzhao Jian, Yunqiu Xu, Xiaoxiao Sun, Hehe Fan">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="SmartMage: Dynamic Modality Orchestration for 3D Scene Understanding">
+  <meta property="og:description" content="A unified MLLM for semantic-guided modality selection and modality-aware expert specialization in 3D scene understanding.">
+  <meta property="og:image" content="https://arxiv.org/html/2608.05137v1/x1.png">
+  <meta property="og:url" content="https://yuecheong.github.io/SmartMage/">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="static/images/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="static/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "name": "SmartMage: Dynamic Modality Orchestration for 3D Scene Understanding",
+    "author": [
+      {"@type": "Person", "name": "Yue Zhang"},
+      {"@type": "Person", "name": "Yingzhao Jian"},
+      {"@type": "Person", "name": "Yunqiu Xu"},
+      {"@type": "Person", "name": "Xiaoxiao Sun"},
+      {"@type": "Person", "name": "Hehe Fan"}
+    ],
+    "datePublished": "2026",
+    "publisher": {"@type": "Organization", "name": "ACM"},
+    "sameAs": ["https://arxiv.org/abs/2608.05137", "https://doi.org/10.1145/3767308.3835083"]
+  }
+  </script>
 </head>
 <body>
-<h1><b>SmartMage</b>: Dynamic Modality Orchestration for 3D Scene Understanding</h1>
-<p class="authors">Yue Zhang, Yingzhao Jian, Yunqiu Xu, Xiaoxiao Sun, Hehe Fan<br>Zhejiang University & Stanford University</p>
-<div class="buttons">
-<a class="btn" href="https://arxiv.org/abs/2608.05137">arXiv</a>
-<a class="btn" href="https://doi.org/10.1145/3767308.3835083">DOI</a>
-<span class="btn">Code Coming Soon</span>
-</div>
-<section><img class="img" src="static/images/carousel1.jpg"><h2>Abstract</h2><p>SmartMage is a unified multimodal large language model for 3D scene understanding that dynamically orchestrates heterogeneous modalities through semantic-guided modality selection and modality-aware expert specialization.</p></section>
-<section><h2>Method</h2><img class="img" src="static/images/carousel2.jpg"><p>SmartMage introduces SMART for adaptive modality selection and MAGE for modality-aware expert routing.</p></section>
-<section><h2>Results</h2><img class="img" src="static/images/carousel3.jpg"><p>SmartMage achieves strong performance across five 3D scene understanding benchmarks.</p></section>
-<section><h2>BibTeX</h2><pre>@inproceedings{zhang2026smartmage,
-title={SmartMage: Dynamic Modality Orchestration for 3D Scene Understanding},
-author={Zhang, Yue and Jian, Yingzhao and Xu, Yunqiu and Sun, Xiaoxiao and Fan, Hehe},
-year={2026}
-}</pre></section>
+  <nav class="nav">
+    <div class="shell nav-inner">
+      <a class="brand" href="#top">Smart<span>Mage</span></a>
+      <div class="nav-links">
+        <a href="#abstract">Abstract</a>
+        <a href="#method">Method</a>
+        <a href="#results">Results</a>
+        <a href="#bibtex">BibTeX</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="top">
+    <header class="hero">
+      <div class="shell hero-content">
+        <div class="venue"><span class="venue-dot"></span> ACM Multimedia 2026</div>
+        <h1><span class="gradient-text">SmartMage</span>: Dynamic Modality Orchestration for 3D Scene Understanding</h1>
+
+        <div class="authors" aria-label="Authors">
+          <a href="mailto:zhangyue1228@zju.edu.cn">Yue Zhang<sup>1</sup></a>
+          <a href="mailto:jian.ying.zhao@qq.com">Yingzhao Jian<sup>1</sup></a>
+          <a href="mailto:imyunqiuxu@gmail.com">Yunqiu Xu<sup>1</sup></a>
+          <a href="mailto:xxsunzrt@gmail.com">Xiaoxiao Sun<sup>2</sup></a>
+          <a href="mailto:hehefan@zju.edu.cn">Hehe Fan<sup>1,✉</sup></a>
+        </div>
+        <div class="affiliations">
+          <span><sup>1</sup> Zhejiang University, Hangzhou, Zhejiang, China</span>
+          <span><sup>2</sup> Stanford University, Stanford, California, USA</span>
+        </div>
+        <div class="corresponding-note"><sup>✉</sup> Corresponding author</div>
+
+        <div class="action-row">
+          <a class="btn primary" href="https://arxiv.org/abs/2608.05137" target="_blank" rel="noopener">arXiv</a>
+          <a class="btn" href="https://arxiv.org/pdf/2608.05137" target="_blank" rel="noopener">Paper</a>
+          <a class="btn" href="https://doi.org/10.1145/3767308.3835083" target="_blank" rel="noopener">DOI</a>
+          <a class="btn" href="https://github.com/YueCheong/SmartMage" target="_blank" rel="noopener">Code</a>
+          <a class="btn" href="https://huggingface.co/papers/2608.05137" target="_blank" rel="noopener">Hugging Face</a>
+        </div>
+      </div>
+    </header>
+
+    <div class="teaser-wrap">
+      <div class="shell">
+        <figure class="figure-card">
+          <img src="https://arxiv.org/html/2608.05137v1/x1.png" alt="Motivation of SmartMage: different questions prefer different 3D modalities, while SmartMage adaptively selects modalities and experts." fetchpriority="high">
+          <figcaption class="caption">Different questions exhibit inherent modality preferences. SmartMage replaces fixed modality combinations with semantic-guided adaptive selection and modality-aware expert routing.</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <section id="abstract">
+      <div class="shell">
+        <div class="eyebrow">Overview</div>
+        <h2 class="section-title">Abstract</h2>
+        <p class="abstract">
+          Understanding 3D scenes is fundamental to embodied intelligence, requiring joint reasoning over heterogeneous visual and geometric cues. Yet the relevance of these modalities varies across queries, while existing Multimodal Large Language Models typically rely on fixed modality combinations. SmartMage is a unified MLLM that dynamically orchestrates heterogeneous modalities for semantic-aware 3D scene understanding. It combines a Semantic-guided Modality Adaptive RouTing (SMART) module, which selects task-relevant modalities using semantic priors, text-modality alignment, and modality quality, with a Modality-Aware Gating Expert (MAGE) module, which uses modality priors to guide expert activation and foster adaptive specialization. SmartMage achieves state-of-the-art performance across five 3D scene understanding benchmarks and remains competitive on RGB-only video benchmarks. ScanFacet further enables fine-grained analysis of modality preferences across semantic question types.
+        </p>
+      </div>
+    </section>
+
+    <section id="method" class="soft">
+      <div class="shell">
+        <div class="eyebrow">Approach</div>
+        <h2 class="section-title">Global-to-local modality orchestration</h2>
+        <p class="section-lead">SmartMage first decides which modalities should participate in reasoning, then assigns multimodal tokens to appropriate experts inside the language model.</p>
+
+        <div class="method-grid">
+          <article class="method-card smart">
+            <h3>SMART: adaptive modality selection</h3>
+            <p>A global scheduler jointly considers semantic priors, text-modality similarity, and modality quality to retain RGB as the primary modality and select an instruction-dependent subset of BEV, depth, point cloud, and voxel inputs.</p>
+          </article>
+          <article class="method-card mage">
+            <h3>MAGE: modality-aware experts</h3>
+            <p>A modality-aware expert speculation module supplies soft modality-expert priors to a sparse MoE-based LLM, encouraging structured token routing and modality-specialized expert behavior.</p>
+          </article>
+        </div>
+
+        <figure class="figure-card">
+          <img src="https://arxiv.org/html/2608.05137v1/x2.png" alt="Architecture of SmartMage with feature extraction, SMART modality selection, and MAGE expert routing." loading="lazy">
+          <figcaption class="caption">SmartMage encodes RGB, depth, BEV, point cloud, and voxel inputs in a unified space; SMART selects complementary modalities and MAGE performs modality-aware expert routing.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="results">
+      <div class="shell">
+        <div class="eyebrow">Experiments</div>
+        <h2 class="section-title">Strong performance across five 3D benchmarks</h2>
+        <p class="section-lead">SmartMage is evaluated on 3D question answering, dense captioning, and visual grounding, while also supporting interpretable task-dependent modality selection.</p>
+
+        <div class="metrics" aria-label="Selected benchmark results">
+          <div class="metric"><strong>32.6</strong><span>ScanQA<br>EM@1</span></div>
+          <div class="metric"><strong>66.8</strong><span>SQA3D<br>EM@1</span></div>
+          <div class="metric"><strong>88.7</strong><span>Scan2Cap<br>CIDEr@0.5</span></div>
+          <div class="metric"><strong>59.5</strong><span>ScanRefer<br>Acc@0.5</span></div>
+          <div class="metric"><strong>60.7</strong><span>Multi3DRefer<br>F1@0.5</span></div>
+        </div>
+
+        <figure class="figure-card">
+          <img src="https://arxiv.org/html/2608.05137v1/x8.png" alt="Qualitative SmartMage results for object identification, spatial reasoning, color recognition, counting, localization, and geometry understanding." loading="lazy">
+          <figcaption class="caption">Qualitative examples show that the model selects different modality combinations for object identification, spatial reasoning, color recognition, counting, localization, and geometry understanding.</figcaption>
+        </figure>
+
+        <div class="analysis-grid">
+          <figure class="figure-card">
+            <img src="https://arxiv.org/html/2608.05137v1/x5.png" alt="Heatmap of modality preferences across semantic question types." loading="lazy">
+            <figcaption class="caption">Adaptive modality combinations vary across question semantics on ScanFacet.</figcaption>
+          </figure>
+          <figure class="figure-card">
+            <img src="https://arxiv.org/html/2608.05137v1/x6.png" alt="Token allocation across experts with modality-aware expert speculation." loading="lazy">
+            <figcaption class="caption">MAGE induces differentiated modality-to-expert allocation patterns, revealing modality-aware expert specialization.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section id="bibtex" class="soft">
+      <div class="shell">
+        <div class="eyebrow">Citation</div>
+        <h2 class="section-title">BibTeX</h2>
+        <p class="section-lead">Please cite our ACM Multimedia 2026 paper when using SmartMage in your research.</p>
+        <div class="bib-card">
+          <button class="copy-btn" type="button" onclick="copyBibtex(this)">Copy</button>
+          <pre id="bibtex-code">@inproceedings{zhang2026smartmage,
+  title     = {SmartMage: Dynamic Modality Orchestration for 3D Scene Understanding},
+  author    = {Zhang, Yue and Jian, Yingzhao and Xu, Yunqiu and Sun, Xiaoxiao and Fan, Hehe},
+  booktitle = {Proceedings of the 34th ACM International Conference on Multimedia},
+  year      = {2026},
+  doi       = {10.1145/3767308.3835083}
+}</pre>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="shell">SmartMage · ACM Multimedia 2026</div>
+  </footer>
+
+  <script>
+    function copyBibtex(button) {
+      const text = document.getElementById('bibtex-code').innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        const old = button.textContent;
+        button.textContent = 'Copied';
+        setTimeout(() => button.textContent = old, 1400);
+      });
+    }
+  </script>
 </body>
 </html>
